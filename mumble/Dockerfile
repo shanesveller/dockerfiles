@@ -2,18 +2,11 @@ FROM phusion/baseimage
 
 MAINTAINER Shane Sveller <shanesveller@gmail.com>
 
-ENV HOME /root
+RUN apt-get update && apt-get upgrade -y && apt-get clean
 
 # Remove authentication rights for insecure_key.
 RUN rm -f /root/.ssh/authorized_keys /home/*/.ssh/authorized_keys
 
-# Use baseimage-docker's init process.
-CMD ["/sbin/my_init"]
-
-# Do not prompt for APT choices via dialog, etc.
-ENV DEBIAN_FRONTEND noninteractive
-
-RUN apt-get update -qq && apt-get dist-upgrade -y
 RUN apt-get update -qq && apt-get install -y mumble-server
 
 # These will be the server and superuser passwords of the running Mumble server
