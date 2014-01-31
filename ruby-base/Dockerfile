@@ -7,13 +7,13 @@ RUN apt-get update && apt-get upgrade -y && apt-get clean
 # Remove authentication rights for insecure_key.
 RUN rm -f /root/.ssh/authorized_keys /home/*/.ssh/authorized_keys
 
-RUN apt-get install -y python-software-properties
+RUN apt-get install -y python-software-properties build-essential git-core
 RUN apt-add-repository ppa:brightbox/ruby-ng
 
 RUN echo 'gem: --no-document' > /etc/gemrc
 
 ENV INSTALL_RUBY_VERSION ruby2.1
-RUN apt-get update && apt-get install -y ruby-switch $INSTALL_RUBY_VERSION && apt-get clean
+RUN apt-get update && apt-get install -y ruby-switch $INSTALL_RUBY_VERSION $INSTALL_RUBY_VERSION-dev && apt-get clean
 RUN ruby-switch --set $INSTALL_RUBY_VERSION
 
 ENV INSTALL_GEM_VERSION 2.2.0
