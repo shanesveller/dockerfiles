@@ -1,5 +1,9 @@
 ``` shell
+brew tap homebrew/binary
+brew install docker
 export DOCKER_HOST=localhost
-vagrant up
+curl https://raw.github.com/steeve/boot2docker/master/boot2docker > boot2docker
+./boot2docker init
+./boot2docker up
 docker version
 ```
