@@ -1,11 +1,6 @@
-FROM phusion/baseimage
+FROM shanesveller/base
 
 MAINTAINER Shane Sveller <shanesveller@gmail.com>
-
-RUN apt-get update && apt-get upgrade -y && apt-get clean
-
-# Remove authentication rights for insecure_key.
-RUN rm -f /root/.ssh/authorized_keys /home/*/.ssh/authorized_keys
 
 RUN apt-get update -qq && apt-get install -y mumble-server
 
