@@ -1,13 +1,7 @@
-FROM phusion/baseimage
+FROM shanesveller/base
 
 MAINTAINER Shane Sveller <shanesveller@gmail.com>
 
-RUN apt-get update && apt-get upgrade -y && apt-get clean
-
-# Remove authentication rights for insecure_key.
-RUN rm -f /root/.ssh/authorized_keys /home/*/.ssh/authorized_keys
-
-RUN apt-get install -y python-software-properties build-essential git-core
 RUN apt-add-repository ppa:brightbox/ruby-ng
 
 RUN echo 'gem: --no-document' > /etc/gemrc
