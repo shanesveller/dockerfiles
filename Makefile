@@ -4,7 +4,7 @@ CLEAN_CMD=docker rmi
 UNTAGGED_FILTER=docker images | grep '<none>' | awk '{print $$3}'
 VERSION_NUMBER=201402
 
-all: img-base img-minecraft img-mumble img-ruby-base
+all: img-base img-minecraft img-mumble img-ruby-base img-rvm-base
 
 img-base:
 	$(BUILD_CMD) $(BUILD_NS)/base base/
