@@ -5,6 +5,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vbguest.auto_update = false
   config.vbguest.no_install = false
 
+  config.vm.provider :virtualbox do |vb|
+    vb.gui = false
+    vb.customize ["modifyvm", :id, "--memory", "2048"]
+  end
+
   config.vm.box = "boot2docker-0.5.4-1"
 
   config.vm.box_url = "https://github.com/mitchellh/boot2docker-vagrant-box/releases/download/v0.5.4-1/boot2docker_virtualbox.box"
