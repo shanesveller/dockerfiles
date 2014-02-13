@@ -7,6 +7,8 @@ RUN rm -f /root/.ssh/authorized_keys /home/*/.ssh/authorized_keys
 
 RUN sed -i 's/main$/main universe/' /etc/apt/sources.list
 
+ENV DEBIAN_FRONTEND noninteractive
+
 RUN apt-get update -qq && apt-get upgrade -y && apt-get clean
 
 RUN apt-get install -y python-software-properties build-essential git-core && apt-get clean
