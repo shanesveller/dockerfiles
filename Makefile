@@ -4,11 +4,14 @@ CLEAN_CMD=docker rmi
 UNTAGGED_FILTER=docker images | grep '<none>' | awk '{print $$3}'
 VERSION_NUMBER=201402
 
-all: img-base img-ruby-base img-rvm-base img-minecraft img-mumble
+all: img-base img-java-base img-ruby-base img-rvm-base img-minecraft img-mumble
 
 img-base:
 	$(BUILD_CMD) $(BUILD_NS)/base:latest base/
 	$(BUILD_CMD) $(BUILD_NS)/base:$(VERSION_NUMBER) base/
+
+img-java-base: img-base
+	$(BUILD_CMD) $(BUILD_NS)/java-base java-base/
 
 img-mumble: img-base
 	$(BUILD_CMD) $(BUILD_NS)/mumble mumble/
