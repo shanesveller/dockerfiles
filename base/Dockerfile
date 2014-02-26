@@ -1,4 +1,4 @@
-FROM phusion/baseimage:0.9.5
+FROM phusion/baseimage:0.9.8
 
 MAINTAINER Shane Sveller <shanesveller@gmail.com>
 

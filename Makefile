@@ -2,13 +2,13 @@ BUILD_CMD=docker build -t
 BUILD_NS=shanesveller
 CLEAN_CMD=docker rmi
 UNTAGGED_FILTER=docker images | grep '<none>' | awk '{print $$3}'
-VERSION_NUMBER=201402
+BASE_VERSION_NUM=0.9.8
 
 all: img-base img-java-base img-ruby-base img-rvm-base img-minecraft img-mumble
 
 img-base:
 	$(BUILD_CMD) $(BUILD_NS)/base:latest base/
-	$(BUILD_CMD) $(BUILD_NS)/base:$(VERSION_NUMBER) base/
+	$(BUILD_CMD) $(BUILD_NS)/base:$(BASE_VERSION_NUM) base/
 
 img-java-base: img-base
 	$(BUILD_CMD) $(BUILD_NS)/java-base java-base/
@@ -16,7 +16,7 @@ img-java-base: img-base
 img-mumble: img-base
 	$(BUILD_CMD) $(BUILD_NS)/mumble mumble/
 
-img-minecraft: img-base
+img-minecraft: img-java-base
 	$(BUILD_CMD) $(BUILD_NS)/minecraft minecraft/
 
 img-ruby-base: img-base
