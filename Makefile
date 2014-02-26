@@ -10,9 +10,6 @@ img-base:
 	$(BUILD_CMD) $(BUILD_NS)/base:latest base/
 	$(BUILD_CMD) $(BUILD_NS)/base:$(BASE_VERSION_NUM) base/
 
-img-coreos: img-base
-	$(BUILD_CMD) $(BUILD_NS)/coreos-builder coreos-builder/
-
 img-java-base: img-base
 	$(BUILD_CMD) $(BUILD_NS)/java-base java-base/
 
