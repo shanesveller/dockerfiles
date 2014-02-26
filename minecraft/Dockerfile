@@ -1,8 +1,6 @@
-FROM shanesveller/base
+FROM shanesveller/java-base
 
-MAINTAINER Shane Sveller <shanesveller@gmail.com>
-
-RUN apt-get -y install default-jre-headless python-dev python-pip libssl-dev && apt-get clean
+RUN apt-get update -qq && apt-get install -qy python-dev python-pip libssl-dev && apt-get clean
 
 ONBUILD ADD . /opt/minecraft
 ONBUILD VOLUME /opt/minecraft/world
