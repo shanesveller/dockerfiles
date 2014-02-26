@@ -10,6 +10,9 @@ img-base:
 	$(BUILD_CMD) $(BUILD_NS)/base:latest base/
 	$(BUILD_CMD) $(BUILD_NS)/base:$(BASE_VERSION_NUM) base/
 
+img-coreos: img-base
+	$(BUILD_CMD) $(BUILD_NS)/coreos-builder coreos-builder/
+
 img-java-base: img-base
 	$(BUILD_CMD) $(BUILD_NS)/java-base java-base/
 
@@ -24,6 +27,9 @@ img-ruby-base: img-base
 
 img-rvm-base: img-base
 	$(BUILD_CMD) $(BUILD_NS)/rvm-base rvm-base/
+
+img-octopress:
+	$(BUILD_CMD) $(BUILD_NS)/shanesveller-dot-com github.com/shanesveller/shanesveller-dot-com
 
 clean-all:
 	docker rm `docker ps -a -q`
