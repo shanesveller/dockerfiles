@@ -28,6 +28,9 @@ img-rvm-base: img-base
 img-octopress:
 	$(BUILD_CMD) $(BUILD_NS)/shanesveller-dot-com github.com/shanesveller/shanesveller-dot-com
 
+img-chef-base: img-base
+	$(BUILD_CMD) $(BUILD_NS)/rvm-base rvm-base/
+
 clean-all:
 	docker rm `docker ps -a -q` || true
 	docker rmi `docker images -a -q` || true
