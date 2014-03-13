@@ -1,4 +1,4 @@
-FROM shanesveller/base:0.9.8
+FROM shanesveller/base:latest
 
 MAINTAINER Shane Sveller <shanesveller@gmail.com>
 

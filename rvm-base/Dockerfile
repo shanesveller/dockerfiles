@@ -1,4 +1,4 @@
-FROM shanesveller/base:0.9.8
+FROM shanesveller/base:latest
 
 RUN locale-gen  en_US.UTF-8
 ENV LANG en_US.UTF-8
