@@ -1,4 +1,4 @@
-BUILD_CMD=docker build -t
+BUILD_CMD=docker build -rm -t
 BUILD_NS=shanesveller
 CLEAN_CMD=docker rmi
 UNTAGGED_FILTER=docker images | grep '<none>' | awk '{print $$3}'
@@ -29,9 +29,10 @@ img-octopress:
 	$(BUILD_CMD) $(BUILD_NS)/shanesveller-dot-com github.com/shanesveller/shanesveller-dot-com
 
 clean-all:
-	docker rm `docker ps -a -q`
-	docker rmi `docker images -a -q`
+	docker rm `docker ps -a -q` || true
+	docker rmi `docker images -a -q` || true
 
 clean-untagged:
+	docker rm `docker ps -a -q` || true
 	$(CLEAN_CMD) `$(UNTAGGED_FILTER)` || true
 
