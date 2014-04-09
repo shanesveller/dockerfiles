@@ -1,4 +1,4 @@
-BUILD_CMD=docker build -rm -t
+BUILD_CMD=docker build --rm -t
 BUILD_NS=shanesveller
 CLEAN_CMD=docker rmi
 UNTAGGED_FILTER=docker images | grep '<none>' | awk '{print $$3}'
