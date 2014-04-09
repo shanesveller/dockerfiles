@@ -11,9 +11,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     vb.customize ["modifyvm", :id, "--memory", "2048"]
   end
 
-  config.vm.box = "boot2docker-0.7.1-belly"
+  config.vm.box = "boot2docker-0.8.0-belly"
 
-  config.vm.box_url = "http://belly-vagrant.s3.amazonaws.com/boot2docker_virtualbox-0.7.1.box"
+  config.vm.box_url = "http://belly-vagrant.s3.amazonaws.com/boot2docker_virtualbox-0.8.0.box"
 
   config.vm.network :forwarded_port, guest: 80, host: 8080
 end
