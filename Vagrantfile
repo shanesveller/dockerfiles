@@ -1,9 +1,10 @@
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  # These are specific to my laptop since I use the `vagrant-vbguest` plugin
-  config.vbguest.auto_update = false
-  config.vbguest.no_install = false
+  if defined? VagrantVbguest
+    config.vbguest.auto_update = false
+    config.vbguest.no_install = false
+  end
 
   config.vm.provider :virtualbox do |vb|
     vb.gui = false
