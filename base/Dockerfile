@@ -12,6 +12,7 @@ RUN sed -i 's/main$/main universe/' /etc/apt/sources.list
 RUN apt-get update -qq && \
     apt-get upgrade -y && \
     apt-get install -y python-software-properties && \
-    apt-get clean -y
+    apt-get clean -y && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ONBUILD RUN apt-get update -qq
