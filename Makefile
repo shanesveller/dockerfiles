@@ -39,3 +39,11 @@ clean-untagged:
 	docker rm `docker ps -a -q` || true
 	$(CLEAN_CMD) `$(UNTAGGED_FILTER)` || true
 
+run-mumble: img-mumble
+	docker rm -f mumble; \
+	docker run -it \
+	-p 64738:64738 \
+	-e MUMBLE_SERVER_PW='HeJustLeft' \
+	-e MUMBLE_SU_PW='GimmeRoot' \
+	--name mumble \
+	shanesveller/mumble
