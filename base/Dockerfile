@@ -14,5 +14,3 @@ RUN apt-get update -qq && \
     apt-get install -y python-software-properties && \
     apt-get clean -y && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
-ONBUILD RUN apt-get update -qq
