@@ -43,6 +43,7 @@ run-mumble: img-mumble
 	docker rm -f mumble; \
 	docker run -d \
 	-p 64738:64738 \
+	-p 64738:64738/udp \
 	-e MUMBLE_SERVER_PW='HeJustLeft' \
 	-e MUMBLE_SU_PW='GimmeRoot' \
 	--name mumble \

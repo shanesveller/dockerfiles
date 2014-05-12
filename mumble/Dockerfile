@@ -13,6 +13,8 @@ ENV MUMBLE_SU_PW NoSeriouslyChangeMe!
 RUN mkdir /etc/service/mumble
 ADD mumble.sh /etc/service/mumble/run
 
+RUN sed -i 's/^#host=/host=0.0.0.0/' /etc/mumble-server.ini
+
 RUN mkdir -p /etc/my_init.d
 ADD configure-at-boot.sh /etc/my_init.d/mumble.sh
 
