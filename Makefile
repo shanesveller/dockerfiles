@@ -41,7 +41,7 @@ clean-untagged:
 
 run-mumble: img-mumble
 	docker rm -f mumble; \
-	docker run -it \
+	docker run -d \
 	-p 64738:64738 \
 	-e MUMBLE_SERVER_PW='HeJustLeft' \
 	-e MUMBLE_SU_PW='GimmeRoot' \
