@@ -2,7 +2,7 @@ BUILD_CMD=docker build --rm -t
 BUILD_NS=shanesveller
 CLEAN_CMD=docker rmi
 UNTAGGED_FILTER=docker images | grep '<none>' | awk '{print $$3}'
-BASE_VERSION_NUM=0.9.8
+BASE_VERSION_NUM=0.9.10
 
 all: img-base img-java-base img-ruby-base img-rvm-base img-minecraft img-mumble
 
