@@ -41,4 +41,8 @@ RUN npm install -g coffee-script
 
 RUN pacman -S --needed --noconfirm supervisor
 ADD supervisor.conf /opt/mediacrush/
+ADD redis.conf /etc/redis.conf
+ADD supervisor.redis.conf /opt/mediacrush/config/redis.supervisor.conf
+RUN /bin/mkdir -p /var/lib/redis
+
 CMD supervisord -c supervisor.conf
