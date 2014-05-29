@@ -31,6 +31,9 @@ img-octopress:
 img-chef-base: img-base
 	$(BUILD_CMD) $(BUILD_NS)/rvm-base rvm-base/
 
+img-mediacrush:
+	$(BUILD_CMD) $(BUILD_NS)/mediacrush mediacrush/
+
 clean-all:
 	docker rm `docker ps -a -q` || true
 	docker rmi `docker images -a -q` || true
