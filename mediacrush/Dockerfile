@@ -40,6 +40,8 @@ RUN source bin/activate && \
 RUN npm install -g coffee-script
 
 RUN pacman -S --needed --noconfirm supervisor
+ADD config.ini /opt/mediacrush/config.ini
+ADD nginx.conf /opt/mediacrush/config/nginx.conf
 ADD supervisor.conf /opt/mediacrush/
 ADD redis.conf /etc/redis.conf
 ADD supervisor.redis.conf /opt/mediacrush/config/redis.supervisor.conf
