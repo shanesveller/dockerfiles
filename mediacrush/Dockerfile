@@ -45,6 +45,18 @@ ADD nginx.conf /opt/mediacrush/config/nginx.conf
 ADD supervisor.conf /opt/mediacrush/
 ADD redis.conf /etc/redis.conf
 ADD supervisor.redis.conf /opt/mediacrush/config/redis.supervisor.conf
+
+USER redis
 RUN /bin/mkdir -p /var/lib/redis
+USER root
+
+RUN useradd -s /bin/nologin -d /opt/mediacrush -M mediacrush
+ADD supervisor.celery.conf /opt/mediacrush/config/celery.supervisor.conf
+ADD supervisor.gunicorn.conf /opt/mediacrush/config/gunicorn.supervisor.conf
+
+RUN /bin/mkdir storage && chown -R mediacrush:mediacrush /opt/mediacrush
+USER root
+
+EXPOSE 8000
 
 CMD supervisord -c supervisor.conf
