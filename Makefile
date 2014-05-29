@@ -10,6 +10,10 @@ img-base:
 	$(BUILD_CMD) $(BUILD_NS)/base:latest base/
 	$(BUILD_CMD) $(BUILD_NS)/base:$(BASE_VERSION_NUM) base/
 
+img-passenger-base:
+	$(BUILD_CMD) $(BUILD_NS)/passenger-base:latest passenger-base/
+	$(BUILD_CMD) $(BUILD_NS)/passenger-base:$(BASE_VERSION_NUM) passenger-base/
+
 img-java-base: img-base
 	$(BUILD_CMD) $(BUILD_NS)/java-base java-base/
 
@@ -30,6 +34,10 @@ img-octopress:
 
 img-chef-base: img-base
 	$(BUILD_CMD) $(BUILD_NS)/rvm-base rvm-base/
+
+img-kibana: img-passenger-base
+	$(BUILD_CMD) $(BUILD_NS)/kibana kibana/
+
 
 clean-all:
 	docker rm `docker ps -a -q` || true
