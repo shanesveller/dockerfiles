@@ -17,7 +17,7 @@ filter() {
 }
 
 download() {
-  xargs aria2c --allow-overwrite=false --auto-file-renaming=false --dry-run -d /downloads/erock -Z
+  xargs aria2c --allow-overwrite=false --auto-file-renaming=false -d /downloads/erock -Z
 }
 
 prepare && get | collect | filter | download
