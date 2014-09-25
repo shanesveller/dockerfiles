@@ -14,5 +14,6 @@ RUN chmod +x /usr/local/bin/jq
 RUN go get github.com/ericchiang/pup
 
 ADD erock.sh /usr/local/bin/
+ADD subreddit.sh /usr/local/bin/
 
 VOLUME /downloads
