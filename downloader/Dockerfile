@@ -1,7 +1,7 @@
 FROM golang:1.3.1
 MAINTAINER Shane Sveller <shanesveller@gmail.com>
 
-RUN apt-get update -qq && apt-get -y install \
+RUN apt-get update -qq && apt-get -y upgrade apt bash && apt-get -y install \
     aria2 \
     httpie \
     --no-install-recommends \
