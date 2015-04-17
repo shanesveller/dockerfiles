@@ -1,0 +1,5 @@
+mumble:
+  build: mumble/
+  ports:
+    - "64738:64738"
+    - "64738:64738/udp"
