@@ -3,3 +3,9 @@ mumble:
   ports:
     - "64738:64738"
     - "64738:64738/udp"
+teamspeak:
+  build: teamspeak/
+  ports:
+    - "9987:9987/udp"
+    - "10011:10011"
+    - "30033:30033"
