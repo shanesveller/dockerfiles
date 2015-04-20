@@ -18,7 +18,7 @@ RUN apt-get update -q && \
     DEBIAN_FRONTEND=noninteractive dpkg -i /tmp/erlang.deb && \
     rm -rf /tmp/erlang.deb && \
     apt-get update -qq && \
-    apt-get install -y elixir=1.0.3-2 && \
+    apt-get install -y erlang-base=1:17.5 elixir=1.0.4-1 && \
     apt-get clean -y && \
     rm -rf /var/cache/apt/*
 
