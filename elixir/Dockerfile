@@ -17,11 +17,13 @@ RUN apt-get update -q && \
     curl -o /tmp/erlang.deb http://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb && \
     DEBIAN_FRONTEND=noninteractive dpkg -i /tmp/erlang.deb && \
     rm -rf /tmp/erlang.deb && \
-    apt-get update -qq && \
-    apt-get install -y erlang-base=1:17.5 elixir=1.0.4-1 && \
     apt-get clean -y && \
     rm -rf /var/cache/apt/*
 
-RUN curl -o /usr/local/bin/mix http://s3.hex.pm/builds/mix/mix && \
-    mix local.hex --force && \
+RUN apt-get update -q && \
+    apt-get install -y elixir && \
+    apt-get clean -y && \
+    rm -rf /var/cache/apt/*
+
+RUN mix local.hex --force && \
     mix local.rebar --force
