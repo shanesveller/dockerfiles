@@ -5,7 +5,7 @@ MAINTAINER Shane Sveller <shanesveller@gmail.com>
 RUN apt-get update -q && \
     apt-get -y install apt-transport-https && \
     curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add - && \
-    echo 'deb https://deb.nodesource.com/node trusty main' > /etc/apt/sources.list.d/nodesource.list && \
+    echo 'deb https://deb.nodesource.com/node wheezy main' > /etc/apt/sources.list.d/nodesource.list && \
     apt-get update -q && \
     apt-get -y install git locales nodejs && \
     apt-get clean -y && \
