@@ -1,7 +1,6 @@
 machine:
   services:
     - docker
-  timezone: America/Chicago
 
 dependencies:
   cache_directories:
