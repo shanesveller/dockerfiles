@@ -4,9 +4,14 @@ machine:
   timezone: America/Chicago
 
 dependencies:
+  cache_directories:
+    - "~/docker"
+
   override:
     - docker info
+    - if [[ -e ~/docker/image.tar ]]; then docker load -i ~/docker/image.tar; fi
     - docker build -t shanesveller/elixir elixir/
+    - mkdir -p ~/docker && docker save -o ~/docker/image.tar shanesveller/elixir
 
 test:
   override:
@@ -16,6 +21,5 @@ deployment:
   hub:
     branch: master
     commands:
-      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
-      - docker push shanesveller/elixir
+      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS && docker push shanesveller/elixir
 
