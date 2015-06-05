@@ -1,4 +1,4 @@
-FROM shanesveller/elixir:latest
+FROM shanesveller/elixir-lang:latest
 
 MAINTAINER Shane Sveller <shanesveller@gmail.com>
 

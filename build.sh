@@ -4,7 +4,7 @@ NS=shanesveller
 
 # grep 'FROM' **/Dockerfile | awk '!/shanesveller/ {print $2}' | sort | uniq | xargs -n1 docker pull
 
-docker build -t $NS/elixir elixir/
+docker build -t $NS/elixir-lang elixir/
 docker build -t $NS/phoenix phoenix/
 docker build -t $NS/mumble mumble/
 docker build -t $NS/teamspeak teamspeak/
