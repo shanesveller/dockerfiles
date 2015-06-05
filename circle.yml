@@ -18,11 +18,3 @@ test:
   override:
     - docker run -it shanesveller/elixir iex -e ":erlang.halt"
 
-deployment:
-  hub:
-    branch: master
-    owner: shanesveller
-    commands:
-      - docker login -e "$DOCKER_EMAIL" -u "$DOCKER_USER" -p "$DOCKER_PASS"
-      - docker push shanesveller/elixir:latest
-
